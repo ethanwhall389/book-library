@@ -30,3 +30,9 @@
 .book-title {
     font-size: 2em;
 }
+
+.details-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
