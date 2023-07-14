@@ -59,43 +59,54 @@ function clearDisplay () {
     }
 }
 
+    //Update the display as soon as the window loads-- show stored books or show no books.
+window.addEventListener('load', updateDisplay);
+
 function updateDisplay () {
-    for (let i = 0; i < myLibrary.length; i++) {
-        let cardDiv = document.createElement('div');
-        cardDiv.classList.add('book-card')
-        let bookTitle = document.createElement('p');
-        bookTitle.classList.add('book-title');
-        let bookAuthor = document.createElement('p');
-        bookAuthor.classList.add('book-author', 'book-content');
-        let bookPages = document.createElement('p');
-        bookPages.classList.add('book-pages', 'book-content');
-        let bookHasRead = document.createElement('p');
-        bookHasRead.classList.add('book-has-read', 'book-content');
-        let removeBttn = document.createElement('button');
-        removeBttn.textContent = 'Remove Book';
-        removeBttn.setAttribute('data', i);
-        removeBttn.addEventListener('click', removeBook);
-        let toggleReadBttn = document.createElement('button');
-        toggleReadBttn.textContent = 'Change read status';
-        toggleReadBttn.addEventListener('click', () => myLibrary[i].toggleRead());
+    let noBooksMessage = document.querySelector('.no-books-container');
+    if (myLibrary.length == 0) {
+        mainContainer.style.display = 'none';
+        noBooksMessage.style.display = 'flex';
+    } else {
+        noBooksMessage.style.display = 'none';
+        mainContainer.style.display = 'grid';
+        for (let i = 0; i < myLibrary.length; i++) {
+            let cardDiv = document.createElement('div');
+            cardDiv.classList.add('book-card')
+            let bookTitle = document.createElement('p');
+            bookTitle.classList.add('book-title');
+            let bookAuthor = document.createElement('p');
+            bookAuthor.classList.add('book-author', 'book-content');
+            let bookPages = document.createElement('p');
+            bookPages.classList.add('book-pages', 'book-content');
+            let bookHasRead = document.createElement('p');
+            bookHasRead.classList.add('book-has-read', 'book-content');
+            let removeBttn = document.createElement('button');
+            removeBttn.textContent = 'Remove Book';
+            removeBttn.setAttribute('data', i);
+            removeBttn.addEventListener('click', removeBook);
+            let toggleReadBttn = document.createElement('button');
+            toggleReadBttn.textContent = 'Change read status';
+            toggleReadBttn.addEventListener('click', () => myLibrary[i].toggleRead());
 
-        let detailsDiv = document.createElement('div');
-        detailsDiv.classList.add('details-div');
+            let detailsDiv = document.createElement('div');
+            detailsDiv.classList.add('details-div');
 
-        
-        mainContainer.appendChild(cardDiv);
+            
+            mainContainer.appendChild(cardDiv);
 
-        bookTitle.textContent = myLibrary[i].title;
-        bookAuthor.textContent = myLibrary[i].author;
-        bookPages.textContent = myLibrary[i].pages;
-        bookHasRead.textContent = myLibrary[i].hasRead;
-        cardDiv.appendChild(bookTitle);
-        cardDiv.appendChild(detailsDiv);
-        detailsDiv.appendChild(bookAuthor);
-        detailsDiv.appendChild(bookPages);
-        detailsDiv.appendChild(bookHasRead);
-        detailsDiv.appendChild(toggleReadBttn);
-        detailsDiv.appendChild(removeBttn);
+            bookTitle.textContent = myLibrary[i].title;
+            bookAuthor.textContent = myLibrary[i].author;
+            bookPages.textContent = myLibrary[i].pages;
+            bookHasRead.textContent = myLibrary[i].hasRead;
+            cardDiv.appendChild(bookTitle);
+            cardDiv.appendChild(detailsDiv);
+            detailsDiv.appendChild(bookAuthor);
+            detailsDiv.appendChild(bookPages);
+            detailsDiv.appendChild(bookHasRead);
+            detailsDiv.appendChild(toggleReadBttn);
+            detailsDiv.appendChild(removeBttn);
+        }
     }
 }
 

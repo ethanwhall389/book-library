@@ -62,12 +62,12 @@ header h1 {
 
 .add-book-modal {
     background-color: white;
-    border: 3px solid black;
+    border-radius: 7px;
     position: fixed;
     margin: auto;
     height: 400px;
     width: 300px;
-    padding: 5px 20px;
+    padding: 10px 25px;
     top: 150px;
     overflow: auto;
     display: flex;
@@ -128,14 +128,32 @@ header h1 {
 
 
 
+.no-books-container {
+    margin: 0 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
 .main-content {
-    margin: 20px 25px;
+    margin: 30px 25px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 250px;
     grid-auto-rows: 250px;
     gap: 20px;
     justify-items: center;
+    align-content: center;
+}
+
+.no-books {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: center;
 }
 
 .book-card {
