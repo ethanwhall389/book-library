@@ -127,7 +127,7 @@ header h1 {
 
 
 .main-content {
-    margin: 0 25px;
+    margin: 20px 25px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 250px;
