@@ -1,8 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
+
 * {
     display: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+}
+
+button {
+    font-size: 0.8em;
+    font-family: 'Inter', sans-serif;
+    border: none;
+}
+
+header {
+    border-bottom: 1px solid black;
+}
+
+.header-content {
+    margin: 0 25px;
+    display: grid;
+    grid-template-columns: auto auto 3fr;
+    align-items: center;
+    gap: 25px;
+}
+
+header h1 {
+    font-family: 'Lora', sans-serif;
+    font-weight: 700;
+}
+
+.open-modal-bttn {
+    width: 125px;
+    height: 45px;
+    justify-self: flex-end;
+}
+
+.modal-container {
+    width: 100%;
+    display: none; /* set to none on load, changed to flex in js when bttn clicked */
+    justify-content: center;
+}
+
+.add-book-modal {
+    background-color: white;
+    border: 3px solid black;
+    position: fixed;
+    margin: auto;
+    height: 400px;
+    width: 300px;
+    padding: 5px 20px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+    color: rgb(92, 92, 92);
+    transform: rotate(90deg);
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-form ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.form-item.column {
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-item.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-item input {
+    height: 25px;
+    padding: 3px;
+    font-size: 0.9em;
+    font-family: 'Inter';
+}
+
+.modal-form button {
+    height: 35px;
+}
+
+
+
 .main-content {
+    margin: 0 25px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 250px;

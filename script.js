@@ -1,3 +1,21 @@
+//Modal pop-up
+let showModalBttn = document.querySelector('.open-modal-bttn');
+let closeModalBttn = document.querySelector('.close');
+let modal = document.querySelector('.modal-container')
+
+showModalBttn.addEventListener('click', openModal);
+closeModalBttn.addEventListener('click', closeModal);
+
+function openModal () {
+    modal.style.display = 'flex';
+}
+
+function closeModal () {
+    modal.style.display = 'none';
+}
+
+
+
 // Book Constructor
 function Book (title, author, pages, hasRead) {
     this.title = title;
@@ -82,6 +100,7 @@ form.addEventListener('submit', submitForm);
 function submitForm (event) {
     event.preventDefault();
     let book = new Book (this.title.value, this.author.value, this.pages.value, this.hasRead.checked);
+    closeModal();
     addBookToLibrary(book);
 }
 
