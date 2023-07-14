@@ -5,6 +5,11 @@ let modal = document.querySelector('.modal-container')
 
 showModalBttn.addEventListener('click', openModal);
 closeModalBttn.addEventListener('click', closeModal);
+window.addEventListener('click', (event) => {
+    if (event.target == modal) {
+        closeModal()
+    }
+});
 
 function openModal () {
     modal.style.display = 'flex';

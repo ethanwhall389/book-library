@@ -5,10 +5,17 @@
     display: border-box;
 }
 
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-size: 20px;
+    width: 100%;
+    height: 100%;
 }
 
 button {
@@ -42,6 +49,11 @@ header h1 {
 
 .modal-container {
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 1;
+    top: 0;
     display: none; /* set to none on load, changed to flex in js when bttn clicked */
     justify-content: center;
 }
@@ -54,6 +66,7 @@ header h1 {
     height: 400px;
     width: 300px;
     padding: 5px 20px;
+    top: 150px;
     overflow: auto;
     display: flex;
     flex-direction: column;
