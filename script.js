@@ -1,3 +1,59 @@
+let myLibrary = [];
+
+const DisplayController = (() => {
+    //Modal pop-up
+    let mainContainer = document.querySelector('.main-content');
+    let showModalBttn = document.querySelector('.open-modal-bttn');
+    let closeModalBttn = document.querySelector('.close');
+    let modal = document.querySelector('.modal-container')
+
+    showModalBttn.addEventListener('click', openModal);
+    closeModalBttn.addEventListener('click', closeModal);
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            closeModal()
+        }
+    });
+
+    function openModal () {
+        modal.style.display = 'flex';
+    }
+
+    function closeModal () {
+        modal.style.display = 'none';
+    }
+    })();
+
+
+// Book Constructor
+class Book {
+    constructor (title, author, pages, hasRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        hasRead == true ? this.hasRead = 'Read' : this.hasRead = 'Not Read';
+    }
+
+    toggleRead () {
+        this.hasRead == 'Read' ? this.hasRead = 'Not Read' : this.hasRead = 'Read';
+        clearDisplay();
+        updateDisplay();
+    }
+
+    addBookToLibrary (book) {
+        clearDisplay();
+        myLibrary.push(book);
+        updateDisplay();
+    }
+}
+
+const Functionality = (() => {
+
+})();
+
+
+// BEGIN NEW CODE
+
 //Modal pop-up
 let showModalBttn = document.querySelector('.open-modal-bttn');
 let closeModalBttn = document.querySelector('.close');
@@ -22,26 +78,40 @@ function closeModal () {
 
 
 // Book Constructor
-function Book (title, author, pages, hasRead) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    if (hasRead == true) {
-        this.hasRead = 'Read'
-    } else {
-        this.hasRead = 'Not Read'
+class Book {
+    constructor (title, author, pages, hasRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        hasRead == true ? this.hasRead = 'Read' : this.hasRead = 'Not Read';
     }
-}
 
-Book.prototype.toggleRead = function () {
-    if (this.hasRead == 'Read') {
-        this.hasRead = 'Not Read';
-    } else {
-        this.hasRead = 'Read';
+    toggleRead () {
+        this.hasRead == 'Read' ? this.hasRead = 'Not Read' : this.hasRead = 'Read';
+        clearDisplay();
+        updateDisplay();
     }
-    clearDisplay();
-    updateDisplay();
 }
+// function Book (title, author, pages, hasRead) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     if (hasRead == true) {
+//         this.hasRead = 'Read'
+//     } else {
+//         this.hasRead = 'Not Read'
+//     }
+// }
+
+// Book.prototype.toggleRead = function () {
+//     if (this.hasRead == 'Read') {
+//         this.hasRead = 'Not Read';
+//     } else {
+//         this.hasRead = 'Read';
+//     }
+//     clearDisplay();
+//     updateDisplay();
+// }
 
 let mainContainer = document.querySelector('.main-content');
 let myLibrary = [];
