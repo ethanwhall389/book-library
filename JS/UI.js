@@ -1,3 +1,5 @@
+export default DisplayController;
+
 let myLibrary = [];
 
 const DisplayController = (() => {
@@ -114,8 +116,6 @@ class Book {
 
     
 }
-
-window.addEventListener('load', DisplayController.updateDisplay);
 
 
 let form = document.forms['add-book']
