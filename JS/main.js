@@ -1,3 +1,3 @@
-import DisplayController from "./UI";
+import DisplayController from "./UI.js";
 
-window.addEventListener('load', DisplayController.updateDisplay);
+window.addEventListener('DOMContentLoaded', DisplayController.updateDisplay);

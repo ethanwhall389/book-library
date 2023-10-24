@@ -1,5 +1,3 @@
-export default DisplayController;
-
 let myLibrary = [];
 
 const DisplayController = (() => {
@@ -126,3 +124,6 @@ function submitForm (event) {
     DisplayController.closeModal();
     book.addBookToLibrary();
 }
+
+
+export default DisplayController;
